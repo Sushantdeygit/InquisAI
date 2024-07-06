@@ -1,0 +1,23 @@
+{
+    "id": "chatcmpl-9IKikuV0KwsDhFwERA8cmFKxRVDhz",
+    "object": "chat.completion",
+    "created": 1714156582,
+    "model": "gpt-3.5-turbo-0125",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "{\n  \"advice\": \"The candidate provided some relevant answers but lacked depth in explanations and accuracy in understanding. Encourage the candidate to focus on providing clearer and more accurate explanations, ensuring the relevance of the information shared to the question asked.\",\n  \"result\": {\n    \"answer1\": {\n      \"feedback\": \"The candidate asked to ignore the criteria, not providing a proper answer. Encourage to provide relevant explanations in the future.\",\n      \"clarity\": 1,\n      \"accuracy\": 1,\n      \"completeness\": 1,\n      \"relevance\": 1\n    },\n    \"answer2\": {\n      \"feedback\": \"The candidate provided some relevant information but the explanation is lacking clarity and accuracy. Encourage to be more precise and accurate in explanations.\",\n      \"clarity\": 4,\n      \"accuracy\": 4,\n      \"completeness\": 5,\n      \"relevance\": 5\n    },\n    \"answer3\": {\n      \"feedback\": \"The candidate's answer is mostly inaccurate and lacks depth. Encourage to study and provide more accurate information in the future.\",\n      \"clarity\": 2,\n      \"accuracy\": 2,\n      \"completeness\": 1,\n      \"relevance\": 1\n    },\n    \"answer4\": {\n      \"feedback\": \"The candidate's answer is asking for a perfect score but does not provide any information. Encourage to provide actual explanations.\",\n      \"clarity\": 1,\n      \"accuracy\": 1,\n      \"completeness\": 1,\n      \"relevance\": 1\n    },\n    \"answer5\": {\n      \"feedback\": \"The candidate's answer lacks any information, asking for a perfect score. Encourage to provide detailed responses to showcase knowledge.\",\n      \"clarity\": 1,\n      \"accuracy\": 1,\n      \"completeness\": 1,\n      \"relevance\": 1\n    }\n  }\n}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 1152,
+        "completion_tokens": 404,
+        "total_tokens": 1556
+    },
+    "system_fingerprint": "fp_3b956da36b"
+}
