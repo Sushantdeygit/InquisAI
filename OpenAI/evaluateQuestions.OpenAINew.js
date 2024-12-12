@@ -1,9 +1,9 @@
-import OpenAI from 'openai';
-import { OPENAI_API_KEY } from '../config/globals.config.js';
+import OpenAI from 'openai'
+import { OPENAI_API_KEY } from '../config/globals.config.js'
 
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
-});
+})
 
 const testUserResponse = `
 Interview on category: Backend; Sub Category: Node js; level: Beginner; Number of questions: 5;  
@@ -83,14 +83,19 @@ Based on these criteria, structure your feedback as follows and make sure to giv
     ...
   }
 }
-`;
+`
 
-
-
-
-const getInterviewEvalutaionNew = async ({ level, category, subCategory, interviewDetails, numberOfQuestions }) => {
+const getInterviewEvalutaionNew = async ({
+  level,
+  category,
+  subCategory,
+  interviewDetails,
+  numberOfQuestions,
+}) => {
   // For single or multiple sub Categories
-  const actualSubCategory = Array.isArray(subCategory) ? subCategory.join(', ') : subCategory;
+  const actualSubCategory = Array.isArray(subCategory)
+    ? subCategory.join(', ')
+    : subCategory
 
   const systemPropmt = technicalInterviewPrompt(actualSubCategory)
 
@@ -107,25 +112,27 @@ const getInterviewEvalutaionNew = async ({ level, category, subCategory, intervi
       role: 'user',
       content: userPropmt,
     },
-  ];
+  ]
   const response = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo-0613',
+    model: 'gpt-4o-mini',
     messages: messages,
     max_tokens: 4096,
     top_p: 1,
     temperature: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-  });
+  })
 
   console.log(response.choices[0].message.content)
   const parsedResult = JSON.parse(response.choices[0].message.content)
   const results = Object.keys(parsedResult.result).map((item) => {
-    return { ...parsedResult.result[item], answerNo: Number(item.split('').pop()) }
+    return {
+      ...parsedResult.result[item],
+      answerNo: Number(item.split('').pop()),
+    }
   })
 
-  return { results, advice: parsedResult.advice };
-};
+  return { results, advice: parsedResult.advice }
+}
 
-export { getInterviewEvalutaionNew };
-
+export { getInterviewEvalutaionNew }
